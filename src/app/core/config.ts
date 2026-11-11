@@ -9,7 +9,7 @@ export const FORMSPREE_ID = 'mbgoryqr';
  * real. Se usa en canonical, hreflang, Open Graph, datos estructurados, sitemap.xml
  * y robots.txt (estos dos últimos viven en public/ y se editan a mano).
  */
-export const SITE_URL = 'https://jonathanburgos.dev';
+export const SITE_URL = 'https://portafolio-dev-jb.stevenjonathan1995.workers.dev';
 
 /** Perfil de LinkedIn */
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/developer-jonathan-burgos-vargas/';
