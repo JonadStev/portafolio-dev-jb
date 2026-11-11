@@ -76,7 +76,7 @@ export const ES: Content = {
         note: 'Servicios, mensajería e infraestructura digital',
       },
       frontend: { title: 'Frontend', note: 'Interfaces y canales digitales' },
-      security: { title: 'Seguridad', note: 'Autenticación y autorización: OAuth 2.0 y OTP' },
+      security: { title: 'Seguridad', note: 'Autenticación y autorización' },
       data: { title: 'Bases de datos', note: 'Relacionales, NoSQL y PL/SQL' },
       devops: { title: 'DevOps y Linux', note: 'Contenedores, CI/CD y despliegue' },
     },

@@ -23,10 +23,8 @@ export const STACK_GROUPS: { key: StackKey; items: StackItem[] }[] = [
     key: 'frontend',
     items: [{ name: 'Angular', src: '/logos/svg/angular.svg' }],
   },
-  {
-    key: 'security',
-    items: [{ name: 'Keycloak', src: '/logos/svg/keycloak.svg', mono: true }],
-  },
+  // Los grupos anchos (Backend, Bases de datos) quedan en la columna izquierda y los
+  // angostos en la derecha, para que el código del margen no se encime con los logos.
   {
     key: 'data',
     items: [
@@ -37,6 +35,10 @@ export const STACK_GROUPS: { key: StackKey; items: StackItem[] }[] = [
       { name: 'MongoDB', src: '/logos/svg/mongodb.svg' },
       { name: 'Redis', src: '/logos/svg/redis.svg' },
     ],
+  },
+  {
+    key: 'security',
+    items: [{ name: 'Keycloak', src: '/logos/svg/keycloak.svg', mono: true }],
   },
   {
     key: 'devops',
