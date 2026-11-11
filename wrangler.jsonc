@@ -1,0 +1,12 @@
+{
+  // Cloudflare publica el sitio como un Worker que sirve archivos estáticos.
+  // El nombre debe coincidir con el nombre del proyecto en Cloudflare.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portafolio-dev-jb",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./dist/portafolio-dev-jb/browser",
+    // /es y /en sin barra final, igual que las direcciones canónicas del sitio
+    "html_handling": "drop-trailing-slash"
+  }
+}
