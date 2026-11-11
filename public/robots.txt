@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# PROVISIONAL: usa la dirección de workers.dev; cámbiala por tu dominio cuando lo tengas
-Sitemap: https://portafolio-dev-jb.stevenjonathan1995.workers.dev/sitemap.xml
+Sitemap: https://jonathanburgosdev.com/sitemap.xml

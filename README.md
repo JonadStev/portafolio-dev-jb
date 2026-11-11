@@ -23,18 +23,15 @@ npm run format     # Prettier
 
 El CV en PDF se espera en `public/cv/Jonathan-Burgos-CV-es.pdf` y `public/cv/Jonathan-Burgos-CV-en.pdf`.
 
-## Despliegue en Cloudflare Pages
+## Despliegue en Cloudflare
 
-1. Sube el repositorio a GitHub y, en Cloudflare, crea un proyecto de Pages conectado a él.
-2. Configuración de build:
-   - Comando: `npm run build`
-   - Directorio de salida: `dist/portafolio-dev-jb/browser`
-   - Versión de Node: la toma de `.node-version` (24).
-3. Cloudflare te da una dirección `https://<proyecto>.pages.dev`. Úsala como dirección provisional.
-4. En el proyecto, activa **Web Analytics** (no usa cookies).
-5. Cuando tengas dominio propio, agrégalo en **Custom domains** y cambia la dirección en:
-   - `src/app/core/config.ts` (`SITE_URL`)
-   - `public/sitemap.xml`
-   - `public/robots.txt`
+El sitio se publica como un Worker que sirve archivos estáticos, configurado en `wrangler.jsonc`. Cada `git push` a `main` vuelve a compilar y publicar.
+
+- **Proyecto:** `portafolio-dev-jb` (el nombre debe coincidir con el `name` de `wrangler.jsonc`).
+- **Build:** `npm run build`. **Deploy:** `npx wrangler deploy`. Node 24, tomado de `.node-version`.
+- **Dominio:** `https://jonathanburgosdev.com`, agregado en el proyecto, en **Domains & Routes**.
+- **Analítica:** **Web Analytics** de Cloudflare, sin cookies.
+
+Si cambia el dominio, edita la dirección en `src/app/core/config.ts` (`SITE_URL`), `public/sitemap.xml` y `public/robots.txt`.
 
 `public/_redirects` lleva la raíz `/` a `/es`, y `public/_headers` define cabeceras de seguridad y caché.

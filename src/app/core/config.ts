@@ -5,11 +5,11 @@
 export const FORMSPREE_ID = 'mbgoryqr';
 
 /**
- * Dirección pública del sitio, sin barra final. PROVISIONAL: cámbiala por tu dominio
- * real. Se usa en canonical, hreflang, Open Graph, datos estructurados, sitemap.xml
- * y robots.txt (estos dos últimos viven en public/ y se editan a mano).
+ * Dirección pública del sitio, sin barra final. Se usa en canonical, hreflang,
+ * Open Graph y datos estructurados. Si cambia, edita también public/sitemap.xml y
+ * public/robots.txt, que se escriben a mano.
  */
-export const SITE_URL = 'https://portafolio-dev-jb.stevenjonathan1995.workers.dev';
+export const SITE_URL = 'https://jonathanburgosdev.com';
 
 /** Perfil de LinkedIn */
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/developer-jonathan-burgos-vargas/';
