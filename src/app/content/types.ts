@@ -1,6 +1,6 @@
 export type Lang = 'es' | 'en';
 
-export type StackKey = 'backend' | 'frontend' | 'data' | 'devops';
+export type StackKey = 'backend' | 'frontend' | 'security' | 'data' | 'devops';
 
 export interface NavItem {
   id: string;

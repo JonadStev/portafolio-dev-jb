@@ -71,12 +71,16 @@ export const ES: Content = {
     title: 'Stack',
     intro: 'Lo que uso a diario, agrupado por capa.',
     groups: {
-      backend: { title: 'Backend', note: 'Servicios y arquitectura distribuida' },
+      backend: {
+        title: 'Backend',
+        note: 'Servicios, mensajería e infraestructura digital',
+      },
       frontend: { title: 'Frontend', note: 'Interfaces y canales digitales' },
-      data: { title: 'Bases de datos', note: 'Modelado, PL/SQL y rendimiento' },
-      devops: { title: 'DevOps y Linux', note: 'Contenedores y despliegue' },
+      security: { title: 'Seguridad', note: 'Autenticación y autorización: OAuth 2.0 y OTP' },
+      data: { title: 'Bases de datos', note: 'Relacionales, NoSQL y PL/SQL' },
+      devops: { title: 'DevOps y Linux', note: 'Contenedores, CI/CD y despliegue' },
     },
-    also: 'También: Kafka, gRPC, Keycloak, Quarkus, Python, GitLab CI/CD, Traefik.',
+    also: 'También: Quarkus, Python, TypeScript y Traefik.',
   },
   projects: {
     title: 'Proyectos',

@@ -36,6 +36,7 @@ import { Orb } from '../shared/orb';
                         <img
                           [src]="item.src"
                           [alt]="item.name"
+                          [class.mono]="item.mono"
                           width="40"
                           height="40"
                           loading="lazy"
@@ -105,6 +106,11 @@ import { Orb } from '../shared/orb';
       width: 2.5rem;
       height: 2.5rem;
       object-fit: contain;
+    }
+
+    /* Logos de un solo color oscuro: en el tema oscuro se invierten para que se vean */
+    :host-context([data-theme='dark']) .tile img.mono {
+      filter: invert(1);
     }
 
     .tile__name {

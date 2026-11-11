@@ -73,12 +73,16 @@ export const EN: Content = {
     title: 'Stack',
     intro: 'What I use every day, grouped by layer.',
     groups: {
-      backend: { title: 'Backend', note: 'Services and distributed architecture' },
+      backend: {
+        title: 'Backend',
+        note: 'Services, messaging and digital infrastructure',
+      },
       frontend: { title: 'Frontend', note: 'Interfaces and digital channels' },
-      data: { title: 'Databases', note: 'Modeling, PL/SQL and performance' },
-      devops: { title: 'DevOps and Linux', note: 'Containers and deployment' },
+      security: { title: 'Security', note: 'Authentication and authorization: OAuth 2.0 and OTP' },
+      data: { title: 'Databases', note: 'Relational, NoSQL and PL/SQL' },
+      devops: { title: 'DevOps and Linux', note: 'Containers, CI/CD and deployment' },
     },
-    also: 'Also: Kafka, gRPC, Keycloak, Quarkus, Python, GitLab CI/CD, Traefik.',
+    also: 'Also: Quarkus, Python, TypeScript and Traefik.',
   },
   projects: {
     title: 'Projects',
