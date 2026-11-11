@@ -1,0 +1,43 @@
+// Movimiento. Todo se apaga con prefers-reduced-motion (el script de index.html
+// solo agrega .js-motion si la persona no pidió menos movimiento).
+
+// Entrada del hero: una única secuencia escalonada al cargar. Con fill-mode
+// "backwards" el elemento queda libre al terminar, para que GSAP pueda moverlo.
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+html.js-motion {
+  .intro {
+    animation: rise 600ms var(--ease) backwards;
+    animation-delay: calc(var(--i, 0) * 70ms);
+  }
+
+  .intro-fade {
+    animation: fade 1400ms var(--ease) backwards;
+  }
+}
+
+// Aparición al hacer scroll (directiva appReveal). Sin JS o con menos movimiento
+// el contenido es visible desde el inicio: la clase solo la agrega la directiva.
+.reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 700ms var(--ease) var(--reveal-delay, 0ms),
+    transform 700ms var(--ease) var(--reveal-delay, 0ms);
+
+  &.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}

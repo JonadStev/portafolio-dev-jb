@@ -1,0 +1,136 @@
+// Botones
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 2rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    transform var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    background-color var(--dur-fast) var(--ease);
+
+  &--primary {
+    background: var(--grad);
+    color: var(--on-primary);
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  &--secondary {
+    border-color: var(--border-strong);
+    font-weight: 400;
+
+    &:hover {
+      border-color: var(--primary);
+    }
+  }
+}
+
+// Colores de sintaxis para los fragmentos de código dentro de los círculos
+.tk-k {
+  color: var(--soft);
+}
+
+.tk-s {
+  color: var(--accent);
+}
+
+.tk-c {
+  color: var(--text-2);
+}
+
+// Botón con icono a la izquierda
+.btn--icon {
+  gap: 0.625rem;
+}
+
+// Botón compacto
+.btn--small {
+  min-height: 2.5rem;
+  padding: 0 1.25rem;
+  font-size: var(--fs-small);
+}
+
+// Etiquetas
+.tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  color: var(--text-2);
+}
+
+// Sección: título a la izquierda y contenido a la derecha.
+// Separador: las secciones pares forman una banda de otro tono, con arcos suaves
+// arriba y abajo que se funden con el fondo. Sin líneas.
+.section {
+  position: relative;
+  padding: var(--section-y) var(--gutter);
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+    max-width: var(--maxw);
+    margin-inline: auto;
+  }
+
+  &__intro {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+
+    p {
+      color: var(--text-2);
+    }
+  }
+
+  &__body {
+    min-width: 0;
+  }
+
+  @media (min-width: 75rem) {
+    &__inner {
+      grid-template-columns: 18.75rem minmax(0, 1fr);
+      column-gap: var(--space-6);
+    }
+  }
+}
+
+app-home > :nth-child(even) > .section {
+  margin-block: var(--arch);
+  background: var(--panel);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: var(--arch);
+    background: var(--panel);
+    pointer-events: none;
+  }
+
+  &::before {
+    bottom: 100%;
+    clip-path: ellipse(60% 100% at 50% 100%);
+  }
+
+  &::after {
+    top: 100%;
+    clip-path: ellipse(60% 100% at 50% 0%);
+  }
+}

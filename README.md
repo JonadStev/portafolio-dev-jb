@@ -1,59 +1,40 @@
-# PortafolioDevJb
+# Portafolio de Jonathan Burgos
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.6.
+Sitio estático hecho con Angular, SCSS con design tokens y GSAP. Se genera con prerender en español (`/es`) e inglés (`/en`).
 
-## Development server
-
-To start a local development server, run:
+## Comandos
 
 ```bash
-ng serve
+npm start          # servidor de desarrollo en http://localhost:4200
+npm run build      # build de producción en dist/portafolio-dev-jb/browser
+npm run lint       # ESLint
+npm run format     # Prettier
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Dónde se cambia cada cosa
 
-## Code scaffolding
+| Qué | Dónde |
+|---|---|
+| Textos en español e inglés | `src/app/content/es.ts` y `src/app/content/en.ts` |
+| Ejemplos de código de los fondos | `src/app/content/snippets.ts` |
+| Colores, tipografía y espaciado | `src/styles/_tokens.scss` |
+| ID del formulario (Formspree) y dominio | `src/app/core/config.ts` |
+| Foto, imagen para redes, logos y CV | `public/images`, `public/og-image.png`, `public/logos`, `public/cv` |
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+El CV en PDF se espera en `public/cv/Jonathan-Burgos-CV-es.pdf` y `public/cv/Jonathan-Burgos-CV-en.pdf`.
 
-```bash
-ng generate component component-name
-```
+## Despliegue en Cloudflare Pages
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Sube el repositorio a GitHub y, en Cloudflare, crea un proyecto de Pages conectado a él.
+2. Configuración de build:
+   - Comando: `npm run build`
+   - Directorio de salida: `dist/portafolio-dev-jb/browser`
+   - Versión de Node: la toma de `.node-version` (24).
+3. Cloudflare te da una dirección `https://<proyecto>.pages.dev`. Úsala como dirección provisional.
+4. En el proyecto, activa **Web Analytics** (no usa cookies).
+5. Cuando tengas dominio propio, agrégalo en **Custom domains** y cambia la dirección en:
+   - `src/app/core/config.ts` (`SITE_URL`)
+   - `public/sitemap.xml`
+   - `public/robots.txt`
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+`public/_redirects` lleva la raíz `/` a `/es`, y `public/_headers` define cabeceras de seguridad y caché.

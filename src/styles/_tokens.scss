@@ -1,0 +1,104 @@
+// Design tokens de "Bruma". Nada de colores sueltos fuera de este archivo.
+
+:root {
+  // Tipografía
+  --font-sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --fs-display: clamp(3.75rem, 2.2rem + 6.6vw, 7rem);
+  --fs-h2: clamp(2.125rem, 1.7rem + 1.4vw, 2.75rem);
+  --fs-h3: clamp(1.5rem, 1.3rem + 0.7vw, 1.875rem);
+  --fs-lead: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
+  --fs-role: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-code: 0.9375rem;
+
+  // Espaciado (escala 8, 16, 24, 32, 56, 96, 112)
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3.5rem;
+  --space-6: 6rem;
+  --space-7: 7rem;
+  --gutter: clamp(1.5rem, 6.67vw, 6rem);
+  --section-y: clamp(4rem, 3rem + 4vw, 7rem);
+  --maxw: 90rem;
+  --header-h: 6.75rem;
+
+  // Radios
+  --radius-field: 0.75rem;
+  --radius-logo: 1rem;
+  --radius-card: 1.25rem;
+  --radius-pill: 999px;
+  --arch: clamp(1.5rem, 1rem + 2vw, 3.5rem);
+
+  // Movimiento
+  --dur-fast: 150ms;
+  --dur-base: 300ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+// Tema oscuro (por defecto)
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0f1829;
+  --surface: #162238;
+  --surface-2: #1d2b45;
+  --border: #2b3c5c;
+  --border-strong: #3b4f75;
+  --text: #eef3fb;
+  --text-2: #a5b5ce;
+  --primary: #6e9bea;
+  --soft: #9dbcf3;
+  --accent: #5ec4bc;
+  --on-primary: #0f1829;
+  --grad: linear-gradient(100deg, #6e9bea 0%, #5ec4bc 100%);
+  --grid: rgb(110 155 234 / 16%);
+  --halo-opacity: 0.45;
+  --bd-glow-a: rgb(110 155 234 / 18%);
+  --bd-glow-b: rgb(94 196 188 / 14%);
+  --orb-code-bg: linear-gradient(145deg, rgb(63 107 192 / 55%), rgb(23 38 74 / 92%));
+  --orb-code-border: rgb(110 155 234 / 35%);
+  --orb-grid: rgb(160 190 245 / 9%);
+  --orb-sheen: rgb(94 196 188 / 16%);
+  --grid-card: rgb(110 155 234 / 32%);
+  --orb-1: #3f6bc0;
+  --orb-2: #2a4a87;
+  --orb-3: #17264a;
+  --orb-opacity: 0.9;
+  --panel: #121d33;
+}
+
+// Tema claro
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f4f7fc;
+  --surface: #ffffff;
+  --surface-2: #e9eff9;
+  --border: #d5deec;
+  --border-strong: #b8c6dc;
+  --text: #0f1829;
+  --text-2: #4a5c7a;
+  --primary: #2f5fc0;
+  --soft: #2f5fc0;
+  --accent: #167a74;
+  --on-primary: #ffffff;
+  --grad: linear-gradient(100deg, #2f5fc0 0%, #167a74 100%);
+  --grid: rgb(47 95 192 / 10%);
+  --halo-opacity: 0.3;
+  --bd-glow-a: rgb(47 95 192 / 14%);
+  --bd-glow-b: rgb(22 122 116 / 12%);
+  --orb-code-bg: linear-gradient(145deg, #ffffff, #dce7fa);
+  --orb-code-border: var(--border-strong);
+  --orb-grid: rgb(47 95 192 / 10%);
+  --orb-sheen: rgb(94 196 188 / 22%);
+  --grid-card: rgb(47 95 192 / 24%);
+  --orb-1: #a9c4f5;
+  --orb-2: #7fa6e8;
+  --orb-3: #dce7fa;
+  --orb-opacity: 0.85;
+  --panel: #eaf0fa;
+}

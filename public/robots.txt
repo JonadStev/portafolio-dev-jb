@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# PROVISIONAL: cambia el dominio por el real
+Sitemap: https://jonathanburgos.dev/sitemap.xml
