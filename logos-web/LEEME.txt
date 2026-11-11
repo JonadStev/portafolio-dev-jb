@@ -1,0 +1,10 @@
+Logos para web (fondo transparente)
+svg/   -> recomendado (vectorial, escala sin perder calidad, 1-7 KB). linux.svg pesa 152 KB: usa webp/png o linux-mono.svg.
+webp/  -> 256x256, fondo transparente, 3-10 KB
+png/   -> 256x256, fondo transparente, respaldo para navegadores antiguos
+linux-mono.svg usa currentColor: se colorea con CSS (color: #fff;)
+plsql.svg es una insignia propia (PL/SQL no tiene logo oficial).
+Fuente: proyecto open source devicon (MIT). Los logos son marcas registradas de sus dueños.
+
+Uso:
+<img src="svg/angular.svg" alt="Angular" width="64" height="64" loading="lazy">
