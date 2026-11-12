@@ -22,6 +22,8 @@ export const EN: Content = {
     items: [
       { id: 'sobre', label: 'About' },
       { id: 'stack', label: 'Stack' },
+      { id: 'arquitectura', label: 'Architecture' },
+      { id: 'ia', label: 'AI' },
       { id: 'proyectos', label: 'Projects' },
       { id: 'experiencia', label: 'Experience' },
       { id: 'contacto', label: 'Contact' },
@@ -83,6 +85,273 @@ export const EN: Content = {
       devops: { title: 'DevOps and Linux', note: 'Containers, CI/CD and deployment' },
     },
     also: 'Also: Quarkus, Python, TypeScript and Traefik.',
+  },
+  architecture: {
+    title: 'Architecture',
+    intro: 'How I design and document a system so the whole team knows what each person builds.',
+    daily: {
+      title: 'The architecture I use every day',
+      intro: 'There is no single answer: I pick by problem and combine them.',
+      items: [
+        {
+          key: 'hexagonal',
+          title: 'Hexagonal (ports and adapters)',
+          text: 'The domain knows nothing about the database or the external bank. Everything goes in and out through ports, and adapters can be swapped without touching the logic.',
+        },
+        {
+          key: 'microservices',
+          title: 'Microservices',
+          text: 'Small services with a single responsibility, behind a gateway. Each one is deployed and scaled on its own.',
+        },
+        {
+          key: 'events',
+          title: 'Event-driven',
+          text: 'Services talk through messages on Kafka. The publisher does not wait, and consumers process at their own pace.',
+        },
+        {
+          key: 'layers',
+          title: 'Layers and archetypes',
+          text: 'Controller, service, repository. A Maven archetype gives every new project the same structure from day one.',
+        },
+      ],
+    },
+    patterns: {
+      title: 'Design patterns I implement',
+      intro: 'Pick a family and see where each pattern shows up in my projects.',
+      groups: [
+        {
+          name: 'Creational',
+          items: [
+            {
+              name: 'Factory Method',
+              use: 'Choosing the right connector for each payment type or channel.',
+            },
+            {
+              name: 'Builder',
+              use: 'Building messages and requests with many optional fields, without giant constructors.',
+            },
+            {
+              name: 'Singleton',
+              use: 'One client per shared resource, managed by the Spring container.',
+            },
+          ],
+        },
+        {
+          name: 'Structural',
+          items: [
+            {
+              name: 'Adapter',
+              use: 'Translating an external bank or provider format into the internal model.',
+            },
+            { name: 'Facade', use: 'A single entry point to several internal services.' },
+            {
+              name: 'Decorator',
+              use: 'Adding auditing, tracing and retries without changing the base logic.',
+            },
+          ],
+        },
+        {
+          name: 'Behavioral',
+          items: [
+            {
+              name: 'Strategy',
+              use: 'Interchangeable validation or calculation rules per product.',
+            },
+            { name: 'Observer', use: 'Reacting to business events: notify, audit, reconcile.' },
+            {
+              name: 'Template Method',
+              use: 'A base process flow whose steps each case redefines.',
+            },
+          ],
+        },
+        {
+          name: 'Distributed systems',
+          items: [
+            {
+              name: 'API Gateway',
+              use: 'Authentication, routing and rate limits in a single place.',
+            },
+            {
+              name: 'Circuit Breaker',
+              use: 'Cutting calls to a failing service so it does not drag the rest down.',
+            },
+            {
+              name: 'Saga',
+              use: 'Long transactions across services, with compensation if something fails.',
+            },
+            {
+              name: 'Outbox',
+              use: 'Storing the event next to the data and publishing it later, without losing messages.',
+            },
+          ],
+        },
+      ],
+    },
+    scale: {
+      title: 'Scaling horizontally with Docker and Swarm',
+      intro:
+        'Instead of a bigger server, more copies of the same service. Change the replica count and watch how they spread out.',
+      client: 'Clients',
+      balancer: 'Traefik',
+      balancerNote: 'Spreads the requests',
+      cluster: 'Docker Swarm cluster',
+      manager: 'Manager node',
+      worker: 'Worker node',
+      replicasLabel: 'Service replicas',
+      emptySlot: 'free',
+      points: [
+        {
+          title: 'Stateless services',
+          text: 'Any replica can serve any request. Sessions and data live outside.',
+        },
+        {
+          title: 'Automatic balancing',
+          text: 'Swarm publishes the service and Traefik discovers new replicas with no manual setup.',
+        },
+        {
+          title: 'Zero-downtime updates',
+          text: 'Rolling update: one replica is replaced at a time and, if the health check fails, it rolls back.',
+        },
+      ],
+    },
+    evidence: {
+      title: 'Evidence: the diagrams I hand to the team',
+      intro:
+        'Before writing code I leave three views of the same system: which pieces exist, how they are organized inside, and what happens over time.',
+      note: 'Illustrative example of an interbank payment, redrawn for this portfolio.',
+      scrollHint: 'Swipe to see the full diagram',
+      prev: 'Previous diagram',
+      next: 'Next diagram',
+      slideLabel: 'Go to diagram',
+      slides: [
+        {
+          key: 'components',
+          tab: 'Components',
+          title: 'Component diagram',
+          caption:
+            'The macro view: which services exist, who talks to whom and where the data lives. It helps split responsibilities across teams.',
+          alt: 'Component diagram: a web client calls an API Gateway, which routes to the authentication, payments and notifications services. Payments uses Oracle, publishes events to Kafka and connects to the interbank network.',
+        },
+        {
+          key: 'class',
+          tab: 'Classes',
+          title: 'Class diagram',
+          caption:
+            'The inside of one service: the domain depends on interfaces (ports) and adapters implement them. This keeps the code decoupled.',
+          alt: 'Class diagram: PaymentController uses the PaymentUseCase interface, implemented by PaymentService. PaymentService depends on the PaymentGateway and PaymentRepository ports, implemented by BanredAdapter and OraclePaymentRepository.',
+        },
+        {
+          key: 'sequence',
+          tab: 'Sequence',
+          title: 'Sequence diagram',
+          caption:
+            'The view over time: the exact order of messages in a payment, with token validation and the final event.',
+          alt: 'Sequence diagram: the client sends the payment to the gateway, which validates the token and forwards it to the payments service. That service calls the interbank network, publishes an event to Kafka and returns the confirmation.',
+        },
+      ],
+    },
+  },
+  ai: {
+    title: 'Artificial intelligence',
+    intro: 'How I work with Claude Code to take a system from idea to production.',
+    level: {
+      title: 'My level with Claude Code',
+      text: 'Advanced, not expert. I build scalable systems from scratch and put them into production quickly, backed by my experience in development and architecture. The tool speeds things up; the judgment is still mine.',
+      marks: ['Beginner', 'Intermediate', 'Advanced', 'Expert'],
+      current: 2,
+      badge: 'I am here',
+    },
+    flow: {
+      title: 'How I build a backend with AI',
+      intro: 'I analyze and design first, then generate code. Tap a step to see what I do in it.',
+      outputLabel: 'Deliverable',
+      steps: [
+        {
+          title: 'Requirements',
+          text: 'With Claude I gather and organize functional and non-functional requirements, and spot gaps and ambiguities before designing.',
+          output: 'requirements.md',
+        },
+        {
+          title: 'Use cases',
+          text: 'I turn requirements into use cases with actors, main flow and alternate flows.',
+          output: 'use-cases.md',
+        },
+        {
+          title: 'Architecture',
+          text: 'I define components, patterns and how to deploy, and review each decision against its alternatives.',
+          output: 'architecture.md',
+        },
+        {
+          title: 'Entity-relationship model',
+          text: 'I design tables, relationships and indexes, leaving the model ready to create the database.',
+          output: 'er-model.sql',
+        },
+        {
+          title: 'Assisted code',
+          text: 'Claude writes the code following the previous design. I review every change and keep the structure clean.',
+          output: 'source code',
+        },
+        {
+          title: 'Internal tests',
+          text: 'Tests run to confirm everything works, and I fix until it is clean, scalable and functional.',
+          output: 'green tests',
+        },
+        {
+          title: 'Production',
+          text: 'Packaged in Docker and deployed to the cluster, with the same care as any other service.',
+          output: 'service online',
+        },
+      ],
+    },
+    toolkit: {
+      title: 'What I have built inside Claude',
+      intro: 'Claude Code can be extended. These are the pieces I use to make it work my way.',
+      items: [
+        {
+          key: 'agents',
+          title: 'Agents',
+          text: 'Specialized agents, each with its own role, to split the work into clear tasks.',
+        },
+        {
+          key: 'skills',
+          title: 'Custom skills',
+          text: 'Reusable instructions that teach Claude my conventions and my processes.',
+        },
+        {
+          key: 'design',
+          title: 'frontend-design',
+          text: 'A skill I use a lot so interfaces have their own visual direction instead of looking generic.',
+        },
+        {
+          key: 'impeccable',
+          title: 'impeccable',
+          text: 'A skill to design, review and polish interfaces: hierarchy, type, color, accessibility and responsive behavior.',
+        },
+      ],
+    },
+    session: {
+      title: 'A typical session',
+      label: 'Illustration of a working session with Claude Code',
+      lines: [
+        { kind: 'user', text: 'Gather the requirements for the payments module' },
+        { kind: 'agent', text: 'Analyst agent → requirements.md' },
+        { kind: 'user', text: 'Generate the entity-relationship model' },
+        { kind: 'agent', text: 'Data agent → er-model.sql' },
+        { kind: 'user', text: 'Implement the service and run the tests' },
+        { kind: 'ok', text: 'Tests green. Ready for review' },
+      ],
+    },
+    loop: {
+      title: 'The judgment is mine, the speed is the tool’s',
+      text: 'Every cycle goes through me before and after: I decide what gets built and review what comes back.',
+      center: 'Work cycle',
+      nodes: [
+        { title: 'I define', text: 'Scope, architecture and rules' },
+        { title: 'Claude executes', text: 'Generates and adjusts the code' },
+        { title: 'Tests verify', text: 'Confirm that it works' },
+        { title: 'I review', text: 'Validate, clean up and deploy' },
+      ],
+    },
   },
   projects: {
     title: 'Projects',

@@ -66,6 +66,76 @@ export interface Content {
     groups: Record<StackKey, { title: string; note: string }>;
     also: string;
   };
+  architecture: SectionIntro & {
+    daily: {
+      title: string;
+      intro: string;
+      items: {
+        key: 'hexagonal' | 'microservices' | 'events' | 'layers';
+        title: string;
+        text: string;
+      }[];
+    };
+    patterns: {
+      title: string;
+      intro: string;
+      groups: { name: string; items: { name: string; use: string }[] }[];
+    };
+    scale: {
+      title: string;
+      intro: string;
+      client: string;
+      balancer: string;
+      balancerNote: string;
+      cluster: string;
+      manager: string;
+      worker: string;
+      replicasLabel: string;
+      emptySlot: string;
+      points: { title: string; text: string }[];
+    };
+    evidence: {
+      title: string;
+      intro: string;
+      note: string;
+      scrollHint: string;
+      prev: string;
+      next: string;
+      slideLabel: string;
+      slides: {
+        key: 'components' | 'class' | 'sequence';
+        tab: string;
+        title: string;
+        caption: string;
+        alt: string;
+      }[];
+    };
+  };
+  ai: SectionIntro & {
+    level: { title: string; text: string; marks: string[]; current: number; badge: string };
+    flow: {
+      title: string;
+      intro: string;
+      outputLabel: string;
+      steps: { title: string; text: string; output: string }[];
+    };
+    toolkit: {
+      title: string;
+      intro: string;
+      items: { key: 'agents' | 'skills' | 'design' | 'impeccable'; title: string; text: string }[];
+    };
+    session: {
+      title: string;
+      label: string;
+      lines: { kind: 'user' | 'agent' | 'ok'; text: string }[];
+    };
+    loop: {
+      title: string;
+      text: string;
+      nodes: { title: string; text: string }[];
+      center: string;
+    };
+  };
   projects: SectionIntro & {
     labels: { problem: string; solution: string; result: string };
     featured: ProjectRow & {

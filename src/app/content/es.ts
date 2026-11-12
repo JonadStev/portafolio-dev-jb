@@ -20,6 +20,8 @@ export const ES: Content = {
     items: [
       { id: 'sobre', label: 'Sobre mí' },
       { id: 'stack', label: 'Stack' },
+      { id: 'arquitectura', label: 'Arquitectura' },
+      { id: 'ia', label: 'IA' },
       { id: 'proyectos', label: 'Proyectos' },
       { id: 'experiencia', label: 'Experiencia' },
       { id: 'contacto', label: 'Contacto' },
@@ -81,6 +83,279 @@ export const ES: Content = {
       devops: { title: 'DevOps y Linux', note: 'Contenedores, CI/CD y despliegue' },
     },
     also: 'También: Quarkus, Python, TypeScript y Traefik.',
+  },
+  architecture: {
+    title: 'Arquitectura',
+    intro:
+      'Cómo diseño y documento un sistema para que todo el equipo sepa qué construye cada quien.',
+    daily: {
+      title: 'La arquitectura que uso a diario',
+      intro: 'No hay una sola respuesta: elijo según el problema y las combino.',
+      items: [
+        {
+          key: 'hexagonal',
+          title: 'Hexagonal (puertos y adaptadores)',
+          text: 'El dominio no conoce la base de datos ni el banco externo. Todo entra y sale por puertos, y los adaptadores se cambian sin tocar la lógica.',
+        },
+        {
+          key: 'microservices',
+          title: 'Microservicios',
+          text: 'Servicios pequeños con una sola responsabilidad, detrás de un gateway. Cada uno se despliega y escala por separado.',
+        },
+        {
+          key: 'events',
+          title: 'Orientada a eventos',
+          text: 'Los servicios se hablan por mensajes con Kafka. Quien publica no espera, y quien consume procesa a su ritmo.',
+        },
+        {
+          key: 'layers',
+          title: 'Capas y arquetipos',
+          text: 'Controlador, servicio, repositorio. Un arquetipo Maven deja a todos los proyectos nuevos con la misma estructura desde el primer día.',
+        },
+      ],
+    },
+    patterns: {
+      title: 'Patrones de diseño que implemento',
+      intro: 'Elige una familia y mira dónde aparece cada patrón en mis proyectos.',
+      groups: [
+        {
+          name: 'Creacionales',
+          items: [
+            {
+              name: 'Factory Method',
+              use: 'Elegir el conector correcto según el tipo de pago o canal.',
+            },
+            {
+              name: 'Builder',
+              use: 'Armar mensajes y solicitudes con muchos campos opcionales sin constructores gigantes.',
+            },
+            {
+              name: 'Singleton',
+              use: 'Un solo cliente por recurso compartido, gestionado por el contenedor de Spring.',
+            },
+          ],
+        },
+        {
+          name: 'Estructurales',
+          items: [
+            {
+              name: 'Adapter',
+              use: 'Traducir el formato de un banco o proveedor externo al modelo interno.',
+            },
+            { name: 'Facade', use: 'Una sola puerta de entrada a varios servicios internos.' },
+            {
+              name: 'Decorator',
+              use: 'Sumar auditoría, trazas y reintentos sin modificar la lógica base.',
+            },
+          ],
+        },
+        {
+          name: 'Comportamiento',
+          items: [
+            {
+              name: 'Strategy',
+              use: 'Reglas de validación o cálculo intercambiables según el producto.',
+            },
+            {
+              name: 'Observer',
+              use: 'Reaccionar a eventos del negocio: notificar, auditar, conciliar.',
+            },
+            {
+              name: 'Template Method',
+              use: 'Un flujo base de proceso con pasos que cada caso redefine.',
+            },
+          ],
+        },
+        {
+          name: 'Sistemas distribuidos',
+          items: [
+            {
+              name: 'API Gateway',
+              use: 'Autenticación, enrutamiento y límites de uso en un único punto.',
+            },
+            {
+              name: 'Circuit Breaker',
+              use: 'Cortar las llamadas a un servicio caído para que no arrastre al resto.',
+            },
+            {
+              name: 'Saga',
+              use: 'Transacciones largas entre servicios con compensación si algo falla.',
+            },
+            {
+              name: 'Outbox',
+              use: 'Guardar el evento junto al dato y publicarlo después, sin perder mensajes.',
+            },
+          ],
+        },
+      ],
+    },
+    scale: {
+      title: 'Escalar horizontalmente con Docker y Swarm',
+      intro:
+        'En vez de un servidor más grande, más copias del mismo servicio. Cambia el número de réplicas y mira cómo se reparten.',
+      client: 'Clientes',
+      balancer: 'Traefik',
+      balancerNote: 'Reparte las peticiones',
+      cluster: 'Clúster Docker Swarm',
+      manager: 'Nodo manager',
+      worker: 'Nodo worker',
+      replicasLabel: 'Réplicas del servicio',
+      emptySlot: 'libre',
+      points: [
+        {
+          title: 'Servicios sin estado',
+          text: 'Cualquier réplica puede atender cualquier petición. La sesión y los datos viven fuera.',
+        },
+        {
+          title: 'Balanceo automático',
+          text: 'Swarm publica el servicio y Traefik descubre las réplicas nuevas sin configurar nada a mano.',
+        },
+        {
+          title: 'Actualización sin corte',
+          text: 'Rolling update: se reemplaza una réplica a la vez y, si falla el chequeo de salud, se revierte.',
+        },
+      ],
+    },
+    evidence: {
+      title: 'Evidencia: los diagramas que entrego al equipo',
+      intro:
+        'Antes de escribir código dejo tres vistas del mismo sistema: qué piezas hay, cómo se organizan por dentro y qué pasa en el tiempo.',
+      note: 'Ejemplo ilustrativo de un pago interbancario, redibujado para este portafolio.',
+      scrollHint: 'Desliza para ver el diagrama completo',
+      prev: 'Diagrama anterior',
+      next: 'Diagrama siguiente',
+      slideLabel: 'Ir al diagrama',
+      slides: [
+        {
+          key: 'components',
+          tab: 'Componentes',
+          title: 'Diagrama de componentes',
+          caption:
+            'La vista macro: qué servicios existen, quién habla con quién y dónde viven los datos. Sirve para repartir responsabilidades entre equipos.',
+          alt: 'Diagrama de componentes: un cliente web llama a un API Gateway, que enruta a los servicios de autenticación, pagos y notificaciones. Pagos usa Oracle, publica eventos en Kafka y se conecta con la red interbancaria.',
+        },
+        {
+          key: 'class',
+          tab: 'Clases',
+          title: 'Diagrama de clases',
+          caption:
+            'La vista interna de un servicio: el dominio depende de interfaces (puertos) y los adaptadores las implementan. Así se escribe el código sin acoplarlo.',
+          alt: 'Diagrama de clases: PaymentController usa la interfaz PaymentUseCase, implementada por PaymentService. PaymentService depende de los puertos PaymentGateway y PaymentRepository, implementados por BanredAdapter y OraclePaymentRepository.',
+        },
+        {
+          key: 'sequence',
+          tab: 'Secuencia',
+          title: 'Diagrama de secuencia',
+          caption:
+            'La vista en el tiempo: el orden exacto de los mensajes en un pago, con la validación del token y el evento final.',
+          alt: 'Diagrama de secuencia: el cliente envía el pago al gateway, este valida el token y lo reenvía al servicio de pagos, que consulta a la red interbancaria, publica un evento en Kafka y devuelve la confirmación.',
+        },
+      ],
+    },
+  },
+  ai: {
+    title: 'Inteligencia artificial',
+    intro: 'Cómo trabajo con Claude Code para llevar un sistema de la idea a producción.',
+    level: {
+      title: 'Mi nivel con Claude Code',
+      text: 'Avanzado, no experto. Creo sistemas escalables desde cero y los pongo en producción en poco tiempo, apoyado en mi experiencia en desarrollo y arquitectura. La herramienta acelera; el criterio sigue siendo mío.',
+      marks: ['Básico', 'Intermedio', 'Avanzado', 'Experto'],
+      current: 2,
+      badge: 'Aquí estoy',
+    },
+    flow: {
+      title: 'Cómo construyo un backend con IA',
+      intro:
+        'Primero analizo y diseño, después genero código. Toca un paso para ver qué hago en él.',
+      outputLabel: 'Entregable',
+      steps: [
+        {
+          title: 'Requerimientos',
+          text: 'Con Claude levanto y ordeno los requerimientos funcionales y no funcionales, y detecto huecos y ambigüedades antes de diseñar.',
+          output: 'requerimientos.md',
+        },
+        {
+          title: 'Casos de uso',
+          text: 'Convierto los requerimientos en casos de uso con actores, flujo principal y flujos alternos.',
+          output: 'casos-de-uso.md',
+        },
+        {
+          title: 'Arquitectura',
+          text: 'Defino componentes, patrones y la forma de desplegar, y reviso cada decisión con sus alternativas.',
+          output: 'arquitectura.md',
+        },
+        {
+          title: 'Modelo entidad-relación',
+          text: 'Diseño las tablas, las relaciones y los índices, y dejo el modelo listo para crear la base de datos.',
+          output: 'modelo-er.sql',
+        },
+        {
+          title: 'Código asistido',
+          text: 'Claude escribe el código siguiendo el diseño anterior. Yo reviso cada cambio y mantengo la estructura limpia.',
+          output: 'código fuente',
+        },
+        {
+          title: 'Pruebas internas',
+          text: 'Se ejecutan pruebas para comprobar que todo funciona y se corrige hasta dejarlo limpio, escalable y funcional.',
+          output: 'pruebas en verde',
+        },
+        {
+          title: 'Producción',
+          text: 'Empaquetado en Docker y desplegado en el clúster, con el mismo cuidado que cualquier otro servicio.',
+          output: 'servicio en línea',
+        },
+      ],
+    },
+    toolkit: {
+      title: 'Lo que he construido dentro de Claude',
+      intro:
+        'Claude Code se puede extender. Estas son las piezas que uso para que trabaje a mi manera.',
+      items: [
+        {
+          key: 'agents',
+          title: 'Agentes',
+          text: 'Agentes especializados, cada uno con su rol, para repartir el trabajo en tareas claras.',
+        },
+        {
+          key: 'skills',
+          title: 'Skills propias',
+          text: 'Instrucciones reutilizables que enseñan a Claude mis convenciones y mis procesos.',
+        },
+        {
+          key: 'design',
+          title: 'frontend-design',
+          text: 'Skill que uso mucho para que las interfaces tengan una dirección visual propia y no se vean genéricas.',
+        },
+        {
+          key: 'impeccable',
+          title: 'impeccable',
+          text: 'Skill para diseñar, revisar y pulir interfaces: jerarquía, tipografía, color, accesibilidad y responsive.',
+        },
+      ],
+    },
+    session: {
+      title: 'Una sesión típica',
+      label: 'Ilustración de una sesión de trabajo con Claude Code',
+      lines: [
+        { kind: 'user', text: 'Levanta los requerimientos del módulo de pagos' },
+        { kind: 'agent', text: 'Agente analista → requerimientos.md' },
+        { kind: 'user', text: 'Genera el modelo entidad-relación' },
+        { kind: 'agent', text: 'Agente de datos → modelo-er.sql' },
+        { kind: 'user', text: 'Implementa el servicio y ejecuta las pruebas' },
+        { kind: 'ok', text: 'Pruebas en verde. Listo para revisión' },
+      ],
+    },
+    loop: {
+      title: 'El criterio es mío, la velocidad es de la herramienta',
+      text: 'Cada ciclo pasa por mí antes y después: yo decido qué se construye y reviso lo que vuelve.',
+      center: 'Ciclo de trabajo',
+      nodes: [
+        { title: 'Yo defino', text: 'Alcance, arquitectura y reglas' },
+        { title: 'Claude ejecuta', text: 'Genera y ajusta el código' },
+        { title: 'Las pruebas verifican', text: 'Comprueban que funciona' },
+        { title: 'Yo reviso', text: 'Valido, limpio y despliego' },
+      ],
+    },
   },
   projects: {
     title: 'Proyectos',
