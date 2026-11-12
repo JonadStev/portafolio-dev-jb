@@ -56,7 +56,7 @@ export const ES: Content = {
       'Entre los proyectos destacados: integración con Banred, canales financieros con Western Union, refactorización del pago de nómina con arquitectura distribuida y mensajería síncrona/asíncrona, e implementación de autenticación de doble factor (OAuth 2.0 + Keycloak) y OTP para banca virtual.',
     ],
     photoAlt: 'Retrato de Jonathan Burgos',
-    photo: '/images/jonathan.webp',
+    photo: '/images/jonathan-v2.webp',
     facts: [
       {
         title: 'Educación',
@@ -452,6 +452,14 @@ export const ES: Content = {
     title: 'Referencias',
     intro: 'Lo que dicen quienes trabajaron conmigo.',
     items: [
+      {
+        text: 'Jonathan, es un profesional que se caracteriza por su disposición para cumplir con los proyectos asignados a él, y colaborar en los proyectos asignados a sus compañeros. Investiga y se actualiza con las nuevas tecnologías. Ha participado eficazmente en proyectos del Banco.',
+        who: 'Jose Luis Alcivar Zambrano',
+        url: 'https://www.linkedin.com/in/jose-luis-alcivar-zambrano-a9632a28/',
+        role: 'Gerente Nacional de Tecnología en Banco del Litoral',
+        date: '11 de noviembre de 2026',
+        context: 'Ocupaba un cargo superior al de Jonathan, pero no lo supervisaba directamente',
+      },
       {
         text: 'Desde el primer día estuvo siempre abierto a ayudarme y a enseñarme, con una paciencia enorme y sin hacerme sentir nunca que una duda era demasiado básica. … Su acompañamiento me dio la confianza para enfrentar un proyecto real en un entorno bancario y empezar a aportar de verdad al equipo. … Jonathan combina solidez técnica con una vocación genuina por enseñar.',
         who: 'Jose Paredes',

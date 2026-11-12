@@ -58,7 +58,7 @@ export const EN: Content = {
       'Highlighted projects: integration with Banred, financial channels with Western Union, refactoring of payroll payments with a distributed architecture and synchronous/asynchronous messaging, and implementation of two-factor authentication (OAuth 2.0 + Keycloak) and OTP for online banking.',
     ],
     photoAlt: 'Portrait of Jonathan Burgos',
-    photo: '/images/jonathan.webp',
+    photo: '/images/jonathan-v2.webp',
     facts: [
       {
         title: 'Education',
@@ -447,6 +447,15 @@ export const EN: Content = {
     title: 'References',
     intro: 'What people who worked with me say.',
     items: [
+      {
+        text: 'Jonathan is a professional who stands out for his willingness to deliver the projects assigned to him and to collaborate on the projects assigned to his colleagues. He researches and keeps up to date with new technologies. He has taken part effectively in the Bank’s projects.',
+        who: 'Jose Luis Alcivar Zambrano',
+        url: 'https://www.linkedin.com/in/jose-luis-alcivar-zambrano-a9632a28/',
+        role: 'National Technology Manager at Banco del Litoral',
+        date: 'November 11, 2026',
+        context: 'Held a more senior position than Jonathan, but did not supervise him directly',
+        note: 'Translated from Spanish',
+      },
       {
         text: 'From day one he was always open to helping and teaching me, with enormous patience, and never made me feel that a question was too basic. … His guidance gave me the confidence to take on a real project in a banking environment and start contributing to the team. … Jonathan combines technical strength with a genuine vocation for teaching.',
         who: 'Jose Paredes',

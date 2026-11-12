@@ -15,4 +15,4 @@ export const SITE_URL = 'https://jonathanburgosdev.com';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/developer-jonathan-burgos-vargas/';
 
 /** Imagen para compartir en redes (1200 x 630), servida desde public/ */
-export const OG_IMAGE = '/og-image.png';
+export const OG_IMAGE = '/og-image-v2.png';

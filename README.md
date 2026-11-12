@@ -19,7 +19,7 @@ npm run format     # Prettier
 | Ejemplos de código de los fondos | `src/app/content/snippets.ts` |
 | Colores, tipografía y espaciado | `src/styles/_tokens.scss` |
 | ID del formulario (Formspree) y dominio | `src/app/core/config.ts` |
-| Foto, imagen para redes, logos y CV | `public/images`, `public/og-image.png`, `public/logos`, `public/cv` |
+| Foto, imagen para redes, logos y CV | `public/images`, `public/og-image-v2.png`, `public/logos`, `public/cv` |
 
 El CV en PDF se espera en `public/cv/Jonathan-Burgos-CV-es.pdf` y `public/cv/Jonathan-Burgos-CV-en.pdf`.
 

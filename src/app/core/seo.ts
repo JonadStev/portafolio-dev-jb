@@ -89,7 +89,7 @@ export class Seo {
       '@type': 'Person',
       name: 'Jonathan Burgos',
       url,
-      image: `${SITE_URL}/images/jonathan.webp`,
+      image: `${SITE_URL}/images/jonathan-v2.webp`,
       jobTitle: seo.jobTitle,
       description: seo.description,
       inLanguage: lang,
